@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airflow-scheduler-deployment
+  labels:
+    name: airflow-scheduler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: airflow-scheduler
+  template:
+    metadata:
+      labels:
+        name: airflow-scheduler
+    spec:
+      containers:
+      - name: airflow-scheduler
+        image: apache/airflow:2.0.1
+        command: ["airflow"]
+        args: ["scheduler"]
+        env:
+        - name: AIRFLOW__CORE__EXECUTOR
+          value: "LocalExecutor"
+        - name: AIRFLOW__CORE__SQL_ALCHEMY_CONN
+          value: "postgresql+psycopg2://postgres:postgres@postgres-service:5432/airflow"
+        - name: AIRFLOW__CORE__FERNET_KEY
+          value: "FB0o_zt4e3Ziq3LdUUO7F2Z95cvFFx16hU8jTeR1ASM="
+        - name: AIRFLOW__CORE__LOAD_EXAMPLES
+          value: "False"
+        - name: AIRFLOW__CORE__LOGGING_LEVEL
+          value: "INFO"
+        ports:
+        - containerPort: 8080
+      restartPolicy: Always
