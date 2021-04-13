@@ -1,5 +1,17 @@
 # Simple Setup
 
+## Starting Minikub
+
+```sh
+minikube start
+```
+
+## Mounting Host Path
+
+```sh
+minikube mount $HOME:/host
+```
+
 ```sh
 kubectl apply -f postgres-deployment.yml
 ```
@@ -22,7 +34,6 @@ kubectl exec -it airflow-webserver-deployment-5dfb447946-cbxbj -- bash -c "airfl
 ```
 
 ## Accessing Airflow Web UI
-
 
 If you're using [Minikube](https://minikube.sigs.k8s.io/), run:
 
