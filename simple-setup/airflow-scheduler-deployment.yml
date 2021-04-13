@@ -32,4 +32,18 @@ spec:
           value: "INFO"
         ports:
         - containerPort: 8080
+        volumeMounts:
+        - mountPath: /opt/airflow/airflow.cfg
+          name: airflow-cfg
+        - mountPath: /opt/airflow/dags
+          name: airflow-volume
+      volumes:
+      - name: airflow-cfg
+        hostPath:
+          path: /host/Projects/dataength/airflow-on-k8s/simple-setup/airflow/airflow.cfg
+          type: File
+      - name: airflow-volume
+        hostPath:
+          path: /host/Projects/dataength/airflow-on-k8s/simple-setup/airflow/dags
+          type: Directory
       restartPolicy: Always
