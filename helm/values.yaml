@@ -1,0 +1,7 @@
+config:
+  core:
+    load_examples: 'True'
+  webserver:
+    expose_config: 'True'
+workers:
+  replicas: 3
