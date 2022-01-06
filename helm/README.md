@@ -1,4 +1,4 @@
-# Airflow Deployment on K8S using Helm
+# Airflow Deployment on K8s using Helm
 
 All Airflow configuration parameters are stored in [values.yaml](https://github.com/apache/airflow/blob/main/chart/values.yaml).
 
