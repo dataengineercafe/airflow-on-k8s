@@ -1,6 +1,6 @@
-# Airflow on Kubernetes
+# Airflow on Kubernetes (K8s)
 
-## Using K8S from Docker Desktop
+## Using K8s from Docker Desktop
 
 Create a new context for Airflow 
 
