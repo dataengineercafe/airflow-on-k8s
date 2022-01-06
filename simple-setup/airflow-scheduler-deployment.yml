@@ -21,7 +21,10 @@ spec:
         args: ["scheduler"]
         env:
         - name: AIRFLOW__CORE__EXECUTOR
-          value: "LocalExecutor"
+          valueFrom:
+            configMapKeyRef:
+              name: airflow-configmap
+              key: executor
         - name: AIRFLOW__CORE__SQL_ALCHEMY_CONN
           value: "postgresql+psycopg2://postgres:postgres@postgres-service:5432/airflow"
         - name: AIRFLOW__CORE__FERNET_KEY
